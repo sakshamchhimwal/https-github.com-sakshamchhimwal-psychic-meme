@@ -1,0 +1,212 @@
+body{
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  background-color: #242f40;
+}
+.profilenav{
+  z-index: 10;
+  top: 0px;
+  position: sticky;
+  background-color: black;
+}
+.navflexbox{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+.logo{
+  width: 80vw;
+}
+.navimage{
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 60px;
+  width: 60px;
+}
+.home{
+  width: 6.5vw;
+  text-align: center;
+  padding-top: 15px
+}
+.trending{
+  width: 7vw;
+  padding-top: 15px;
+  text-align: center;
+}
+.options{
+  width: 6.5vw;
+  padding-top: 15px;
+  text-align: center;
+}
+.large{
+  font-size: 30px;
+  color: white;
+}
+.displayimages{
+  position: relative;
+}
+.backcover,.backimage{
+  width: 100vw;
+  height: 300px;
+  background-color: yellow;
+}
+.profileimage{
+  width: 33vw;
+  height: 210px;
+  text-align: center;
+}
+.centergridfordiv{
+  height: 250px;
+  position: absolute;
+  top: 200px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 100vw;
+}
+.displaypic{
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  transition-duration: 0.2s;
+}
+.displaypic:hover{
+  transition-duration: 0.4s;
+  transition-delay: 0.1s;
+  height: 250px;
+  width: 200px;
+  border-radius: 0;
+}
+.backcover{
+  object-fit: cover;
+}
+/* .testclass{
+  position: relative;
+} */
+.personaldetails{
+  padding: 0 1vw;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 29vw 30vw 29vw;
+  grid-column-gap: 5vw;
+}
+.minidetails{
+  text-align: center;
+  height: 250px;
+  border-radius: 30px;
+  background: -webkit-linear-gradient(354deg, rgba(219,190,137,1) 0%, rgba(115,182,128,1) 80%, rgba(182,103,170,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.basicdetails{
+  z-index: 2;
+  overflow-y: scroll;
+  text-align: center;
+  height: 250px;
+  border-radius: 30px;
+  background-color: transparent;
+}
+.usernamediv{
+  margin: 80px auto 0;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 50px;
+}
+.basicdetailsdiv{
+  border-radius: 10px;
+  margin: 20px auto 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 24px;
+  background: rgb(153,149,219);
+background: linear-gradient(90deg, rgba(153,149,219,.1) 0%, rgba(213,207,91,.1) 47%, rgba(124,224,44,.1) 100%);
+  }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.basicdetails::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.basicdetails {
+  padding-left: 0;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.friendsList{
+  text-align: center;
+  list-style: none;
+}
+.friendsLink{
+  text-decoration: none;
+  background: -webkit-linear-gradient(354deg, rgba(219,190,137,1) 0%, rgba(115,182,128,1) 80%, rgba(182,103,170,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.listhr{
+  width: 20%;
+  margin: 10px auto;
+  height: 5px;
+  border: none;
+  background: linear-gradient(354deg, rgba(219,190,137,1) 0%, rgba(115,182,128,1) 80%, rgba(182,103,170,1) 100%);
+}
+.fixedpoints{
+  position: sticky;
+  bottom: 0%;
+  background-color: black;
+}
+.friendsLink{
+  position: sticky;
+  top: 0%;
+  background-color: black;
+}
+ul{
+  padding-inline-start:0px;
+}
+.ulheader{
+  position: sticky;
+  top: 0;
+  background: black;
+  z-index: 3;
+}
+.viewfriends{
+  text-decoration: none;
+  background: -webkit-linear-gradient(354deg, rgba(219,190,137,1) 0%, rgba(115,182,128,1) 80%, rgba(182,103,170,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.postsflexbox{
+  width: 99vw;
+  margin-left: 0vw;
+  display: flex;
+  flex-direction: column;
+}
+.photos{
+  display: inline-block;
+  height: 7vh;
+  width: 96vw;
+  background-color: white;
+  font-size: 30px;
+  padding-top: 3vh;
+  padding-left: 2vw;
+  margin-bottom: 2vh;
+}
+.photocardsgrid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 3px;
+}
+.postphotos{
+  width: 100%;
+  height: 100%
+}
+.postedphotoclass{
+   object-fit: cover;
+}
+.addimage{
+  text-align: center;
+}
+.largeplus{
+  font-size: 80px;
+}

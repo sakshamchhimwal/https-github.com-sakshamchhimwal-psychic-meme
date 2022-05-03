@@ -1,0 +1,88 @@
+<%- include('partials/headerprofile') %>
+<nav class="profilenav">
+  <div class="navflexbox">
+    <div class="logo">
+      <img src="images/logonav.png" alt="" class="navimage">
+    </div>
+    <div class="home">
+      <i class="fa-solid fa-house large"></i>
+    </div>
+    <div class="trending">
+      <i class="fa-solid fa-bolt large"></i>
+    </div>
+    <div class="options">
+      <i class="fa-solid fa-bars-staggered large"></i>
+    </div>
+  </div>
+</nav>
+<!--*******************************-->
+<div class="displayimages">
+  <div class="backimage">
+    <!-- testimage inserted--><img src=images/bg2.jpg alt="Background Image" class="backcover">
+  </div>
+  <div class="testclass">
+    <div class="centergridfordiv">
+      <div class="" style="width:33vw">
+
+      </div>
+      <div class="profileimage">
+        <img src=<%=profileimage%> alt="Profile Image" class="displaypic">
+      </div>
+      <div class="" style="width:33vw">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ************************************* -->
+<div class="personaldetails">
+  <div class="minidetails">
+    <div class="usernamediv">
+      <%=username%>
+    </div>
+  </div>
+  <div class="">
+
+  </div>
+  <div class="basicdetails">
+    <div class="basicdetailsdiv">
+      <div class="ulheader">
+        <p class="friendsLink" style="font-weight:900;">Friends</p>
+      </div>
+      <ul class="friendsList">
+        <% friends.forEach(function(username){ %>
+        <li><a href="/friends/<%=username%>" class="friendsLink"><%=username%></a></li>
+        <%});%>
+        <div class="fixedpoints">
+          <li>
+            <hr class="listhr">
+          </li>
+          <li><a href="allpeople"><i class="fa-solid fa-user-plus friendsLink"></i></a></li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ******************************************* -->
+<div class="postsflexbox">
+  <div class="photos">
+    Posts
+  </div>
+  <div class="photocardsgrid">
+    <%posts.forEach((photolink)=>{%>
+    <div class="postphotos">
+      <img src="<%=photolink%>" alt="" class="postedphotoclass">
+    </div>
+    <%});%>
+    <div class="addimage">
+      <form class="" action="/profileaddpost" method="post">
+        <input type="file" name="newpost" value="">
+        <br>
+        <button type="submit" name="button"><i class="fa-solid fa-circle-plus largeplus"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>
