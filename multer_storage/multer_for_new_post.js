@@ -6,10 +6,11 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
-    cb(null, req.user.username + ext);
+    cb(null, req.user.username + req.user.posts.length + Math.floor(Math.random() * 10000) + ext);
   }
 });
 const uploadForNewItems = multer({
   storage: storage
 });
+
 module.exports = uploadForNewItems;

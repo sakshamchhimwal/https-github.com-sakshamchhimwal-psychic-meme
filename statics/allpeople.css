@@ -107,3 +107,55 @@ body{
   color: white;
   transition-duration: 0.2s;
 }
+
+.postsflexbox{
+  width: 99vw;
+  margin-left: 0vw;
+  display: flex;
+  flex-direction: column;
+}
+.photos{
+  display: inline-block;
+  height: 7vh;
+  width: 99vw;
+  background-color: white;
+  font-size: 30px;
+  padding-top: 3vh;
+  padding-left: 2vw;
+  margin-bottom: 2vh;
+}
+.photocardsgrid{
+  display: grid;
+  grid-template-columns: 24.5vw 24.5vw 24.5vw 24.5vw;
+  grid-row-gap: 10vh;
+  margin-left: 2.5vw;
+}
+.postphotos{
+  width: 22vw;
+  height: 22vh;
+}
+.postedphotoclass{
+  width: 22vw;
+  height: 22vh;
+  object-fit: cover;
+}
+.addimage{
+  text-align: center;
+  width: 22vw;
+  height: 22vh;
+  background: rgb(166,161,255);
+  background: linear-gradient(90deg, rgba(166,161,255,1) 0%, rgba(224,228,110,1) 35%, rgba(102,234,84,1) 53%, rgba(126,219,169,1) 62%, rgba(142,202,196,1) 76%, rgba(189,231,239,1) 100%);
+}
+.largeplus{
+  font-size: 80px;
+}
+.addimgbutton{
+  border: none;
+  border-radius: 100%;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+}
+.addimgbox{
+  margin-top: 2vw;
+}

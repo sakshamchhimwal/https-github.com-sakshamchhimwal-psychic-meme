@@ -84,7 +84,8 @@ app.get("/friendsViewProfile:friendUsername", (req, res) => {
         res.render("viewprofile", {
           username: foundUser.username,
           profileimage: foundUser.profileimage,
-          friends: foundUser.friendsId
+          friends: foundUser.friendsId,
+          posts: foundUser.posts
         });
       } else {
         res.redirect("/profile");
@@ -192,16 +193,13 @@ app.post("/profileaddpost", uploadForNewItems.single('newpost'), function(req, r
     }
   }, (err, result) => {
     if (!err) {
-      passport.authenticate("local")(req, res, function() {
-        res.redirect("/profile");
-      });
+      res.redirect("/profile");
     } else {
       res.redirect("/profile", function() {
         console.log(err);
       });
     }
   });
-  console.log(req.file.filename);
 });
 
 //***********Listening Route************

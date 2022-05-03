@@ -70,16 +70,18 @@
   </div>
   <div class="photocardsgrid">
     <%posts.forEach((photolink)=>{%>
-    <div class="postphotos">
-      <img src="<%=photolink%>" alt="" class="postedphotoclass">
+    <div class="postphotos photohover hiddenscroll">
+      <a href="<%=photolink%>" target="_blank"><img src="<%=photolink%>" alt="<%=photolink%>" class="postedphotoclass photohover hiddenscroll" style="color:white;"></a>
     </div>
     <%});%>
     <div class="addimage">
-      <form class="" action="/profileaddpost" method="post">
-        <input type="file" name="newpost" value="">
-        <br>
-        <button type="submit" name="button"><i class="fa-solid fa-circle-plus largeplus"></i></button>
-      </form>
+      <div class="addimgbox">
+        <form class="" action="/profileaddpost" method="post" enctype="multipart/form-data">
+          <input type="file" name="newpost" value="">
+          <br>
+          <button type="submit" name="button" class="addimgbutton"><i class="fa-solid fa-circle-plus largeplus"></i></button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
