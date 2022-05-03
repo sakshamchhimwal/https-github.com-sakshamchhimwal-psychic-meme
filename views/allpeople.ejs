@@ -1,0 +1,44 @@
+<%- include('partials/appleoplehead') %>
+
+<nav class="profilenav">
+  <div class="navflexbox">
+    <div class="logo">
+      <img src="images/logonav.png" alt="" class="navimage">
+    </div>
+    <div class="home">
+      <a href="/profile"><i class="fa-solid fa-house large"></i></a>
+    </div>
+    <div class="trending">
+      <i class="fa-solid fa-bolt large"></i>
+    </div>
+    <div class="options">
+      <i class="fa-solid fa-bars-staggered large"></i>
+    </div>
+  </div>
+</nav>
+
+<div class="allpeopleflex">
+  <div class="x1">
+
+  </div>
+  <div class="x1 x2">
+    <div class="allPeople gridview">
+      <%allpeople.forEach((user)=>{%>
+      <div class="griditem gradientname">
+        <%=user.username%>
+      </div>
+      <div class="griditem">
+        <form class="" action="/allpeople/<%=user.username%>" method="post">
+          <button type="submit" class="selctorbutton" id=""><i class="fa-solid fa-circle-plus selectorbutton"></i></button>
+        </form>
+      </div>
+      <%});%>
+    </div>
+  </div>
+  <div class="x1">
+
+  </div>
+</div>
+
+
+<%- include('partials/footer') %>

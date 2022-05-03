@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<div class="griditem1">
+  <img src="logo.png" alt="logo" id="logo">
+  <br>
+  <hr class="samllhr">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div class="griditem2">
+  <form action="/login" method="post">
+    <div class="miniform hiddenscroll">
+      <div class="minigriditem x1">
+        <input type="text" name="username" placeholder="Enter Username" class="inputbox">
+      </div>
+      <div class="minigriditem x2">
+        <input type="password" name="password" placeholder="Enter Password" class="inputbox">
+      </div>
+      <div class="minigriditem x3">
+        <button type="submit" name="Login">Login</button>
+        <div class="gridhr">
+            <div class="gridhr1">
+              <hr class="smallhr">
+            </div>
+            <div class="gridhr2">
+              or
+            </div>
+            <div class="gridhr3">
+              <hr class="smallhr">
+            </div>
+        </div>
+        <a href="register"><button type="button" name="button">Register</button></a>
+      </div>
+    </div>
+  </form>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,60 @@
+<%- include('partials/headerprofile') %>
+<nav class="profilenav">
+  <div class="navflexbox">
+    <div class="logo">
+      <img src="images/logonav.png" alt="" class="navimage">
+    </div>
+    <div class="home">
+      <a href="/profile"><i class="fa-solid fa-house large"></i></a>
+    </div>
+    <div class="trending">
+      <i class="fa-solid fa-bolt large"></i>
+    </div>
+    <div class="options">
+      <i class="fa-solid fa-bars-staggered large"></i>
+    </div>
+  </div>
+</nav>
+<!--*******************************-->
+<div class="displayimages">
+  <div class="backimage">
+      <!-- testimage inserted--><img src=images/bg2.jpg alt="Background Image" class="backcover">
+  </div>
+<div class="testclass">
+  <div class="centergridfordiv">
+    <div class="" style="width:33vw">
+
+    </div>
+    <div class="profileimage">
+      <img src=<%=profileimage%> alt="Profile Image" class="displaypic">
+    </div>
+    <div class="" style="width:33vw">
+    </div>
+  </div>
+</div>
+</div>
+<!-- ************************************* -->
+<div class="personaldetails">
+  <div class="minidetails">
+      <div class="usernamediv">
+        <%=username%>
+      </div>
+  </div>
+  <div class="">
+
+  </div>
+  <div class="basicdetails">
+
+    <div class="basicdetailsdiv">
+      <div class="ulheader">
+        <p class="friendsLink" style="font-weight:900;">Friends</p>
+      </div>
+      <ul class="friendsList">
+        <% friends.forEach(function(username){ %>
+          <li class="viewfriends"><%=username%></li>
+        <%});%>
+      </ul>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

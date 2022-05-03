@@ -1,0 +1,109 @@
+body{
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(144deg, rgba(33,23,200,1) 0%, rgba(136,138,186,1) 47%, rgba(63,140,122,1) 100%);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+.profilenav{
+  top: 0px;
+  position: sticky;
+  background-color: black;
+  margin-bottom: 20px;
+}
+.navflexbox{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+.logo{
+  width: 80vw;
+}
+.navimage{
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 60px;
+  width: 60px;
+}
+.home{
+  width: 6.5vw;
+  text-align: center;
+  padding-top: 15px
+}
+.trending{
+  width: 7vw;
+  padding-top: 15px;
+  text-align: center;
+}
+.options{
+  width: 6.5vw;
+  padding-top: 15px;
+  text-align: center;
+}
+.large{
+  font-size: 30px;
+  color: white;
+}
+.allPeople{
+  font-size: 30px;
+  height: auto;
+  max-height: 60vh;
+  margin: auto;
+  width: auto;
+  position: fixed;
+  overflow-y: scroll;
+  background: rgb(153,218,136);
+  background: linear-gradient(144deg, rgba(153,218,136,0.3) 0%, rgba(141,180,216,0.3) 47%, rgba(248,255,71,0.3) 100%);
+  border-radius: 10px;
+  padding: 10px 10px;
+}
+.gridview{
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: auto auto;
+}
+.allPeople::-webkit-scrollbar{
+  display: none;
+}
+.allPeople {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.selctorbutton{
+  background-color: transparent;
+  color: black;
+  border: none;
+  font-size: 25px;
+}
+/* .centergirdlayout{
+  display: flex;
+  flex-direction: row;
+}
+.x1{
+  width: 33%;
+  height: auto;
+  border: solid black 3px;
+} */
+
+.allpeopleflex{
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.x1{
+  width: 32%;
+  /* border: solid 3px red; */
+}
+.x2{
+  padding-left: 55px
+}
+.selectorbutton{
+  transition-duration: 0.2s;
+}
+.selectorbutton:hover{
+  color: white;
+  transition-duration: 0.2s;
+}
