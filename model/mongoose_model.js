@@ -27,10 +27,12 @@ const finalProject = new mongoose.Schema({
     type: Array,
     default: []
   },
-  likedPhotos: {
-    type: Array,
-    default: [],
-    unique: true
+  chats: {
+    type: [{
+      username: String,
+      chat: String
+    }],
+    default: []
   }
 });
 

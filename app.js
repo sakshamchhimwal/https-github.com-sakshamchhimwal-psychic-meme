@@ -48,17 +48,22 @@ app.get("/register", function(req, res) {
 
 //*********Profile Route***********
 app.get("/profile", function(req, res) {
-  if (req.isAuthenticated()) {
-    res.render("profile", {
-      username: req.user.username, //to get username form the req object from passport it gets the user data
-      backimage: req.user.backimage,
-      profileimage: req.user.profileimage,
-      friends: req.user.friendsId,
-      posts: req.user.posts
-    });
-  } else {
-    res.redirect("/");
-  }
+  User.findOne({
+    username: "globalchatholder"
+  }, (err, foundUser) => {
+    if (req.isAuthenticated()) {
+      res.render("profile", {
+        username: req.user.username, //to get username form the req object from passport it gets the user data
+        backimage: req.user.backimage,
+        profileimage: req.user.profileimage,
+        friends: req.user.friendsId,
+        posts: req.user.posts,
+        chats: foundUser.chats
+      });
+    } else {
+      res.redirect("/");
+    }
+  });
 });
 
 app.get("/friends/:friendID", (req, res) => {
@@ -202,13 +207,29 @@ app.post("/profileaddpost", uploadForNewItems.single('newpost'), function(req, r
   });
 });
 
-//**************Adding Like Functionality***********
-// app.post("/like/:photolink", function(req, res) {
-//   console.log(req.params.photolink);
-// });
+//**************Adding Chat Functionality***********
+app.post("/addchat", function(req, res) {
+  const newchat = {
+    username: req.user.username,
+    chat: req.body.newchat
+  };
+  User.updateOne({
+    username: "globalchatholder"
+  }, {
+    $push: {
+      chats: newchat
+    }
+  }, (err, result) => {
+    if (!err) {
+      res.redirect("/profile");
+    } else {
+      console.log(err);
+      res.redirect("/");
+    }
+  });
+});
 
 //***********Listening Route************
-var server = app.listen(3000, function() {
+app.listen(3000, function() {
   console.log("Server Running On Port 3000");
 });
-server.setTimeout(5000000);

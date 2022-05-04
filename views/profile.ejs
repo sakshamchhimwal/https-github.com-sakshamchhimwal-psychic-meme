@@ -11,14 +11,14 @@
       <i class="fa-solid fa-bolt large"></i>
     </div>
     <div class="options">
-      <i class="fa-solid fa-bars-staggered large"></i>
+      <button type="button" name="button" id="sideviewbutton" style="background-color:transparent; border:none;"><i class="fa-solid fa-bars-staggered large"></i></button>
     </div>
   </div>
 </nav>
 <!--*******************************-->
 <div class="displayimages">
   <div class="backimage">
-    <!-- testimage inserted--><img src=images/bg2.jpg alt="Background Image" class="backcover">
+    <img src=images/bg2.jpg alt="Background Image" class="backcover">
   </div>
   <div class="testclass">
     <div class="centergridfordiv">
@@ -71,7 +71,7 @@
   <div class="photocardsgrid">
     <%posts.forEach((photolink)=>{%>
     <div class="postphotos photohover hiddenscroll">
-      <a href="<%=photolink%>" target="_blank"><img src="<%=photolink%>" alt="<%=photolink%>" class="postedphotoclass photohover hiddenscroll" style="color:white;"></a>
+      <a href="<%=photolink%>" target="_blank"><img src="<%=photolink%>" alt="<%=photolink%>" class="postedphotoclass hiddenscroll" style="color:white;"></a>
     </div>
     <%});%>
     <div class="addimage">
@@ -86,5 +86,28 @@
   </div>
 </div>
 
+<!-- ********************************* -->
+<div class="sidebar">
+  <p class="sidebarheader">Hello <%=username%> !!!</p>
+  <p><button type="button" name="button" class="sidebarbutton">Remove Friend(s)</button></p>
+  <p><button type="button" name="button" class="sidebarbutton">Remove Post(s)</button></p>
+  <div class="chat hiddenscroll">
+    <%chats.forEach((item) => {%>
+    <div class="chatusername">
+      <%=item.username%>
+    </div>
+    <div class="chatddiv">
+      <%=item.chat%>
+    </div>
+    <%});%>
+  </div>
+  <div class="chatform">
+    <form class="" action="/addchat" method="post">
+      <span><input type="text" name="newchat" value="" placeholder="Write Here.." class="chatinput"><button type="submit" name="button" class="chatsubmit"><i class="fa-solid fa-paper-plane"></i></button>
+      </span>
+    </form>
+  </div>
+
+</div>
 
 <%- include('partials/footer') %>
