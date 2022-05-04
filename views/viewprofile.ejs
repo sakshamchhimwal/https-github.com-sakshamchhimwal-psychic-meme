@@ -64,8 +64,9 @@
   </div>
   <div class="photocardsgrid">
     <%posts.forEach((photolink)=>{%>
-    <div class="postphotos photohover hiddenscroll">
+    <div class="postphotos  hiddenscroll">
       <a href="<%=photolink%>" target="_blank"><img src="<%=photolink%>" alt="<%=photolink%>" class="postedphotoclass photohover hiddenscroll" style="color:white;"></a>
+        <button type="submit" name="like" id="<%=photolink%>" class="likebutton"><i class="fa-solid fa-heart like"></i></button>
     </div>
     <%});%>
   </div>

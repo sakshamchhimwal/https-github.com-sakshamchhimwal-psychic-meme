@@ -26,6 +26,11 @@ const finalProject = new mongoose.Schema({
   posts: {
     type: Array,
     default: []
+  },
+  likedPhotos: {
+    type: Array,
+    default: [],
+    unique: true
   }
 });
 

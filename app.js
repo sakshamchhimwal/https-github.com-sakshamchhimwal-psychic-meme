@@ -202,6 +202,11 @@ app.post("/profileaddpost", uploadForNewItems.single('newpost'), function(req, r
   });
 });
 
+//**************Adding Like Functionality***********
+// app.post("/like/:photolink", function(req, res) {
+//   console.log(req.params.photolink);
+// });
+
 //***********Listening Route************
 var server = app.listen(3000, function() {
   console.log("Server Running On Port 3000");
