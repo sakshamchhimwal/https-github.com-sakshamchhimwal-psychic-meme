@@ -89,8 +89,8 @@
 <!-- ********************************* -->
 <div class="sidebar">
   <p class="sidebarheader">Hello <%=username%> !!!</p>
-  <p><button type="button" name="button" class="sidebarbutton">Remove Friend(s)</button></p>
-  <p><button type="button" name="button" class="sidebarbutton">Remove Post(s)</button></p>
+  <p><a href="/rmfriends"><button type="button" name="button" class="sidebarbutton">Remove Friend(s)</button></a></p>
+  <p><a href="/rmposts"><button type="button" name="button" class="sidebarbutton">Remove Post(s)</button></a></p>
   <div class="chat hiddenscroll">
     <%chats.forEach((item) => {%>
     <div class="chatusername">
@@ -107,7 +107,7 @@
       </span>
     </form>
   </div>
-
+  <p><a href="/logout"><button type="button" name="button" class="sidebarbutton">LOGOUT</button></a></p>
 </div>
 
 <%- include('partials/footer') %>

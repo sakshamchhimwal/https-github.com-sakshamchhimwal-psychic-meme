@@ -98,6 +98,7 @@ app.get("/friendsViewProfile:friendUsername", (req, res) => {
     });
   }
 });
+
 app.get("/allpeople", (req, res) => {
   if (req.isAuthenticated()) {
     User.find({
@@ -111,6 +112,42 @@ app.get("/allpeople", (req, res) => {
         });
       } else {
         console.log(err);
+        res.redirect("/profile");
+      }
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/rmfriends", (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      username: req.user.username
+    }, (err, foundUser) => {
+      if (!err) {
+        res.render("removefriend", {
+          item: foundUser.friendsId
+        });
+      } else {
+        res.redirect("/profile");
+      }
+    });
+  } else {
+    res.redirect("/");
+  }
+});
+
+app.get("/rmposts", (req, res) => {
+  if (req.isAuthenticated()) {
+    User.findOne({
+      username: req.user.username
+    }, (err, founUser) => {
+      if (!err) {
+        res.render("removeposts", {
+          item: founUser.posts
+        });
+      } else {
         res.redirect("/profile");
       }
     });
@@ -225,6 +262,39 @@ app.post("/addchat", function(req, res) {
     } else {
       console.log(err);
       res.redirect("/");
+    }
+  });
+});
+
+//***************Deleting Route*******************
+app.post("/rmfriends/:friendname", (req, res) => {
+  console.log(req.params.friendname);
+  User.updateOne({
+    username: req.user.username
+  }, {
+    $pull: {
+      friendsId: req.params.friendname
+    }
+  }, (err, results) => {
+    if (!err) {
+      res.redirect("/rmfriends");
+    }
+  });
+});
+
+app.post("/posts/userimages/:postname", (req, res) => {
+  const removeimg = "userimages/" + req.params.postname;
+  User.updateOne({
+    username: req.user.username
+  }, {
+    $pull: {
+      posts: {
+        $in: removeimg
+      }
+    }
+  }, (err, results) => {
+    if (!err) {
+      res.redirect("/rmposts");
     }
   });
 });
