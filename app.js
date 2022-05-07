@@ -160,6 +160,33 @@ app.get("/rmfriends", (req, res) => {
   }
 });
 
+app.get("/trending", (req, res) => {
+  User.findOne({
+    username: "globalchatholder"
+  }, (err, chats) => {
+    if (!err) {
+      if (req.isAuthenticated()) {
+        User.findOne({
+          username: "trendingimages"
+        }, (err, images) => {
+          if (!err) {
+            res.render("trending", {
+              item: images.posts,
+              username: req.user.username,
+              chats: chats.chats
+            });
+          } else {
+            res.redirect("/");
+          }
+        });
+      } else {
+        res.redirect("/");
+      }
+    } else {
+      res.redirect("/");
+    }
+  });
+});
 
 app.get("/rmposts", (req, res) => {
   if (req.isAuthenticated()) {
@@ -271,6 +298,16 @@ app.post("/profileaddpost", uploadForNewItems.single('newpost'), function(req, r
       });
     }
   });
+  User.updateOne({
+    username: "trendingimages"
+  }, {
+    $push: {
+      posts: {
+        username: req.user.username,
+        image: "userimages/" + req.file.filename
+      }
+    }
+  }, (err, result) => {});
 });
 
 //**************Adding Chat Functionality***********

@@ -3,7 +3,7 @@ body{
   margin: 0;
   background: linear-gradient(144deg, rgba(33,23,200,1) 0%, rgba(136,138,186,1) 47%, rgba(63,140,122,1) 100%);
   background-repeat: no-repeat;
-  background-size: 100vw 100vh;
+  background-size: 100vw 1000vh;
 }
 .profilenav{
   top: 0px;
@@ -300,4 +300,16 @@ td.username:hover{
 }
 .chatddiv:first-child{
   margin-top: 5px;
+}
+
+td.header{
+  width: 75%;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+.userlink{
+  text-decoration: none;
+  font-size: 33px;
+  color: black;
 }
