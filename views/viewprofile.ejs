@@ -11,7 +11,7 @@
       <i class="fa-solid fa-bolt large"></i>
     </div>
     <div class="options">
-      <i class="fa-solid fa-bars-staggered large"></i>
+      <button type="button" name="button" id="sideviewbutton" style="background-color:transparent; border:none;"><i class="fa-solid fa-bars-staggered large"></i></button>
     </div>
   </div>
 </nav>
@@ -70,6 +70,30 @@
     </div>
     <%});%>
   </div>
+</div>
+
+
+<div class="sidebar">
+  <p class="sidebarheader">Hello <%=username2%> !!!</p>
+  <p><a href="/rmfriends"><button type="button" name="button" class="sidebarbutton">Remove Friend(s)</button></a></p>
+  <p><a href="/rmposts"><button type="button" name="button" class="sidebarbutton">Remove Post(s)</button></a></p>
+  <div class="chat hiddenscroll">
+    <%chats.forEach((item) => {%>
+    <div class="chatusername">
+      <%=item.username%>
+    </div>
+    <div class="chatddiv">
+      <%=item.chat%>
+    </div>
+    <%});%>
+  </div>
+  <div class="chatform">
+    <form class="" action="/addchat" method="post">
+      <span><input type="text" name="newchat" value="" placeholder="Write Here.." class="chatinput"><button type="submit" name="button" class="chatsubmit"><i class="fa-solid fa-paper-plane"></i></button>
+      </span>
+    </form>
+  </div>
+  <p><a href="/logout"><button type="button" name="button" class="sidebarbutton">LOGOUT</button></a></p>
 </div>
 
 <%- include('partials/footer') %>

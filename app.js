@@ -84,72 +84,101 @@ app.get("/friendsViewProfile:friendUsername", (req, res) => {
     User.findOne({
       username: req.params.friendUsername
     }, (err, foundUser) => {
-      if (!err) {
-        console.log(foundUser);
-        res.render("viewprofile", {
-          username: foundUser.username,
-          profileimage: foundUser.profileimage,
-          friends: foundUser.friendsId,
-          posts: foundUser.posts
-        });
-      } else {
-        res.redirect("/profile");
-      }
+      User.findOne({
+        username: "globalchatholder"
+      }, (err2, foundUser2) => {
+        if (!err) {
+          res.render("viewprofile", {
+            username: foundUser.username,
+            profileimage: foundUser.profileimage,
+            friends: foundUser.friendsId,
+            posts: foundUser.posts,
+            chats: foundUser2.chats,
+            username2: req.user.username
+          });
+        } else {
+          res.redirect("/profile");
+        }
+      });
     });
   }
 });
 
+
 app.get("/allpeople", (req, res) => {
   if (req.isAuthenticated()) {
-    User.find({
-      username: {
-        $ne: req.user.username
-      }
-    }, (err, foundUsers) => {
-      if (!err) {
-        res.render("allpeople", {
-          allpeople: foundUsers
-        });
-      } else {
-        console.log(err);
-        res.redirect("/profile");
-      }
+    let oldFriends = req.user.friendsId;
+    oldFriends.push(req.user.username);
+    oldFriends.push("globalchatholder");
+    oldFriends.push("trendingimages");
+    User.findOne({
+      username: "globalchatholder"
+    }, (err, chats) => {
+      User.find({
+        username: {
+          $nin: oldFriends //for including an array of not include
+        }
+      }, (err, foundUsers) => {
+        if (!err) {
+          res.render("allpeople", {
+            allpeople: foundUsers,
+            username: req.user.username,
+            chats: chats.chats
+          });
+        } else {
+          res.redirect("/profile");
+        }
+      });
     });
   } else {
-    res.redirect("/");
+    res.redirect("/profile");
   }
 });
+
 
 app.get("/rmfriends", (req, res) => {
   if (req.isAuthenticated()) {
     User.findOne({
-      username: req.user.username
-    }, (err, foundUser) => {
-      if (!err) {
-        res.render("removefriend", {
-          item: foundUser.friendsId
-        });
-      } else {
-        res.redirect("/profile");
-      }
+      username: "globalchatholder"
+    }, (err, chats) => {
+      User.findOne({
+        username: req.user.username
+      }, (err, foundUser) => {
+        if (!err) {
+          res.render("removefriend", {
+            username: req.user.username,
+            item: foundUser.friendsId,
+            chats: chats.chats
+          });
+        } else {
+          res.redirect("/profile");
+        }
+      });
     });
   } else {
     res.redirect("/");
   }
 });
 
+
 app.get("/rmposts", (req, res) => {
   if (req.isAuthenticated()) {
     User.findOne({
-      username: req.user.username
-    }, (err, founUser) => {
-      if (!err) {
-        res.render("removeposts", {
-          item: founUser.posts
-        });
-      } else {
-        res.redirect("/profile");
-      }
+      username: "globalchatholder"
+    }, (err, chats) => {
+      User.findOne({
+        username: req.user.username
+      }, (err, foundUser) => {
+        if (!err) {
+          res.render("removeposts", {
+            username: req.user.username,
+            item: foundUser.posts,
+            chats: chats.chats
+          });
+        } else {
+          res.redirect("/profile");
+        }
+      });
     });
   } else {
     res.redirect("/");
@@ -246,24 +275,28 @@ app.post("/profileaddpost", uploadForNewItems.single('newpost'), function(req, r
 
 //**************Adding Chat Functionality***********
 app.post("/addchat", function(req, res) {
-  const newchat = {
-    username: req.user.username,
-    chat: req.body.newchat
-  };
-  User.updateOne({
-    username: "globalchatholder"
-  }, {
-    $push: {
-      chats: newchat
-    }
-  }, (err, result) => {
-    if (!err) {
-      res.redirect("/profile");
-    } else {
-      console.log(err);
-      res.redirect("/");
-    }
-  });
+  if (req.body.newchat != "") {
+    const newchat = {
+      username: req.user.username,
+      chat: req.body.newchat
+    };
+    User.updateOne({
+      username: "globalchatholder"
+    }, {
+      $push: {
+        chats: newchat
+      }
+    }, (err, result) => {
+      if (!err) {
+        res.redirect("/profile");
+      } else {
+        console.log(err);
+        res.redirect("/");
+      }
+    });
+  } else {
+    res.redirect("/profile");
+  }
 });
 
 //***************Deleting Route*******************

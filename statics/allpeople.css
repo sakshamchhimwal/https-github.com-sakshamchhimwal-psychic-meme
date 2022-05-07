@@ -87,6 +87,7 @@ body{
 } */
 
 .allpeopleflex{
+  border: solid red 2px;
   width: 99vw;
   display: flex;
   flex-direction: row;
@@ -102,6 +103,7 @@ body{
 }
 .selectorbutton{
   transition-duration: 0.2s;
+  font-size:25px;
 }
 .selectorbutton:hover{
   color: white;
@@ -158,4 +160,144 @@ body{
 }
 .addimgbox{
   margin-top: 2vw;
+}
+
+table,th,td{
+  border: 4px solid transparent;
+  width: 90vw;
+  margin:10px 5vw;
+  text-align: center;
+  font-size: 30px;
+}
+
+td{
+  background-color: rgba(167, 226, 249,0.3);
+}
+td.username{
+  transition-duration: 0.2s;
+}
+td.username:hover{
+  transition-delay: 0.2s;
+  transition-duration: 0.4s;
+  background-color: rgba(165, 254, 194,0.7);
+}
+
+
+
+.sidebar{
+  display: none;
+  color: white;
+  z-index: 5;
+  text-align: center;
+  min-height: 30vh;
+  width: 18vw;
+  background: black;
+  position: absolute;
+  right: 0;
+  top: 63px;
+  margin-right: 10px;
+  animation-name: reveal;
+  animation-duration: 0.5s;
+}
+@keyframes reveal {
+  from{
+    opacity: 0%;
+    top: 0px;
+  }
+  to{
+    opacity: 100%;
+    top: 63px;
+  }
+}
+.sidebarbutton{
+  color: white;
+  font-stretch: extra-expanded;
+  width: 10vw;
+  height: 4vh;
+  background-color: transparent;
+  border: solid purple 2px;
+  transition-duration: 0.2;
+}
+.sidebarbutton:hover{
+  transition-duration: 0.2s;
+  color: black;
+  background-color: white;
+  transform: scale(110%);
+}
+
+.sidebarheader{
+  font-weight: bolder;
+  font-size: 120%;
+}
+.chat{
+  margin: 10px 1.5vw;
+  width: 14vw;
+  padding: 0 0.5vw;
+  height: auto;
+  max-height: 30vh;
+  background-color: #bdf2ef;
+  overflow-x: scroll;
+  color: black;
+  text-align: left;
+}
+.chatinput{
+  color: white;
+  height: 4vh;
+  width: 10vw;
+  border-left: solid 2px purple;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top: solid 2px purple;
+  border-bottom: solid 2px purple;
+  border-radius: ;
+  background-color: transparent;
+  border-right: none;
+}
+
+.chatsubmit{
+  color: white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 3vw;
+  height: 4.75vh;
+  background-color: transparent;
+  border-right: solid 2px purple;
+  border-top: solid 2px purple;
+  border-bottom: solid 2px purple;
+  border-left: none;
+  transition-duration: 0.2s;
+}
+.chatinput:focus{
+  transition-duration: 0.2s;
+  border: none;
+}
+.chatsubmit:hover{
+  transition-duration: 0.2s;
+  color: black;
+  background-color: white;
+}
+
+.chatform{
+  position: sticky;
+  bottom: 0px;
+  margin-bottom: 3px;
+}
+.chatusername{
+  font-size: 13px;
+  width: 100%;
+  background-color: #b7bdb9;
+  font-style: italic;
+  font-stretch: semi-expanded;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.chatddiv{
+  background-color: #b7bdb9;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.chatddiv:first-child{
+  margin-top: 5px;
 }
